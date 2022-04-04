@@ -164,6 +164,10 @@ export class Proxy {
             const originalValue = headers[originalKey];
             const value = resolveRouteParameters(originalValue, match, keys);
             combinedHeaders[originalKey] = value;
+            // Temporary fix to ensure query params is passed through on redirects handled by tf-next.
+            if (originalKey == 'Location') {
+              combinedHeaders[originalKey] = value + '?' + parsedUrl.searchParams.toString();
+            }
           }
         }
 
