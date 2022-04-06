@@ -4,7 +4,7 @@ locals {
 
 module "proxy_package" {
   source  = "dealmore/download/npm"
-  version = "1.0.0"
+  version = "2.1.0"
 
   module_name    = "@oldmoondigital/terraform-next-proxy"
   module_version = var.proxy_module_version
